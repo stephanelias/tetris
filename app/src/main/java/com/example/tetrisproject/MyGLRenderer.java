@@ -15,6 +15,8 @@
  */
 package com.example.tetrisproject ;
 
+import static android.opengl.ETC1.getWidth;
+
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
@@ -37,7 +39,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private final float[] mViewMatrix = new float[16];
     private final float[] mModelMatrix = new float[16];
 
-    private float[] mSquarePosition = {0.0f, 0.0f};
+    private float[] mSquarePosition = {0.0f,15.0f};
 
     /* Première méthode équivalente à la fonction init en OpenGLSL */
     @Override
@@ -48,6 +50,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
         /* on va définir une classe Square pour dessiner des carrés */
         mSquare   = new Square(mSquarePosition);
+
     }
 
     /* Deuxième méthode équivalente à la fonction Display */
@@ -97,7 +100,8 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         GLES30.glViewport(0, 0, width, height);
 
         float ratio = (float) width / height ;
-        Matrix.orthoM(mProjectionMatrix, 0, -10.0f * ratio, 10.0f * ratio, -10.0f, 10.0f, -1.0f, 1.0f);
+        Matrix.orthoM(mProjectionMatrix, 0, -20.0f * ratio, 20.0f * ratio, -20.0f, 20.0f, -1.0f, 1.0f);
+
 
     }
 

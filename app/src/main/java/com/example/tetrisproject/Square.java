@@ -99,7 +99,7 @@ public class Square {
 
     private final int couleurStride = COULEURS_PER_VERTEX * 4; // le pas entre 2 couleurs
 
-    private final float Position[] = {0.0f,0.0f};
+    private final float Position[] = {10.0f,0.0f};
 
     public Square(float[] Pos) {
 
