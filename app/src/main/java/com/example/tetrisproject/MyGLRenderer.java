@@ -95,7 +95,9 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         la projection qu'à la création de la surface !!
          */
         GLES30.glViewport(0, 0, width, height);
-        Matrix.orthoM(mProjectionMatrix, 0, -10.0f, 10.0f, -10.0f, 10.0f, -1.0f, 1.0f);
+
+        float ratio = (float) width / height ;
+        Matrix.orthoM(mProjectionMatrix, 0, -10.0f * ratio, 10.0f * ratio, -10.0f, 10.0f, -1.0f, 1.0f);
 
     }
 
